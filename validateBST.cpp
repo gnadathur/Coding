@@ -1,12 +1,15 @@
+#include <cstddef>
+#include <climits>
 /**
  * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
- * };
  */
+struct TreeNode {
+    int val;
+    TreeNode *left;
+    TreeNode *right;
+    TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+};
+
 class Solution {
 public:
     bool isValidBSTInternal(TreeNode* root, int minVal, int maxVal)
@@ -22,7 +25,7 @@ public:
     }
 
     bool isValidBST(TreeNode* root) {
-        int minVal, maxVal;
-        return isValidBSTInternal(root, LONG_MIN, LONG_MAX);
+        
+        return isValidBSTInternal(root, INT_MIN, INT_MAX);
     }
 };
