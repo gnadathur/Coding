@@ -18,10 +18,10 @@ public:
             return true;
         }
 
-	return (root->val > minVal &&
-		root->val < maxVal &&
-		isValidBSTInternal(root->left, minVal, root->val) &&
-		isValidBSTInternal(root->right, root->val, maxVal));
+        return (root->val > minVal &&
+                root->val < maxVal &&
+                isValidBSTInternal(root->left, minVal, root->val) &&
+                isValidBSTInternal(root->right, root->val, maxVal));
     }
 
     bool isValidBST(TreeNode* root) {
@@ -29,3 +29,8 @@ public:
         return isValidBSTInternal(root, INT_MIN, INT_MAX);
     }
 };
+
+int main(int argc, char** argv)
+{
+    return 0;
+}
