@@ -4,17 +4,20 @@
  *  Created on: Jun 26, 2016
  *      Author: gokul
  */
+#include <vector>
 
+using namespace std;
 
 /**
  * Definition for an interval.
- * struct Interval {
- *     int start;
- *     int end;
- *     Interval() : start(0), end(0) {}
- *     Interval(int s, int e) : start(s), end(e) {}
- * };
  */
+struct Interval {
+    int start;
+    int end;
+    Interval() : start(0), end(0) {}
+    Interval(int s, int e) : start(s), end(e) {}
+};
+
 class Solution {
 public:
     // b is contained in a
