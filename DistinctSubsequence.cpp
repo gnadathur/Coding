@@ -20,7 +20,8 @@ public:
         return ((uint64_t)sindex << 32 | tindex);
     }
     
-	uint64_t countDistinctSubSequence(const string& s, const string& t, uint32_t sindex, uint32_t tindex) {
+	uint64_t countDistinctSubSequence(const string& s, const string& t, uint32_t sindex, uint32_t tindex)
+    {
         auto slen = s.length();
         auto tlen = t.length();
         if (sindex >= slen || tindex >= tlen) {
