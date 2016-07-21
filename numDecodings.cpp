@@ -20,7 +20,8 @@ class Solution {
             return false;
         }
         //auto val = stoul(s.substr(index, 2));
-        auto val = (s[index] - '0') * 10 + s[index] - '0';
+        
+        auto val = (s[index] - '0') * 10 + s[index + 1] - '0';
         return val <= 26;
     }
     
@@ -68,12 +69,6 @@ public:
     }
     
     int numDecodings(string s) {
-        if (s.length() == 1 && isValid(s, 0))  {
-            return 1;
-        }
-        if (s.length() == 0) {
-            return 0;
-        }
         return findDecodings(s, 0);
     }
 };
