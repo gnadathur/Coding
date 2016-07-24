@@ -23,6 +23,13 @@ struct GraphNode {
     bool visited;
 };
 
+struct ParentTree {
+    int val;
+    ParentTree *left;
+    ParentTree *right;
+    ParentTree *parent;
+};
+
 class Solution {
 public:
     bool isValidBSTInternal(TreeNode* root, int minVal, int maxVal)
@@ -35,6 +42,19 @@ public:
                 root->val < maxVal &&
                 isValidBSTInternal(root->left, minVal, root->val) &&
                 isValidBSTInternal(root->right, root->val, maxVal));
+    }
+    
+    ParentTree* inorderSucc(ParentTree* n)
+    {
+        if (n->right != NULL) {
+            auto m = n->right;
+            for (m = m->left; m != NULL; m=m->left);
+            return m;
+        }
+        auto p = n->parent;
+        for (; p != NULL && p->val < n->val; p = p->parent);
+        return p;
+        
     }
 
     bool isValidBST(TreeNode* root) {
