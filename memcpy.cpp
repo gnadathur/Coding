@@ -78,6 +78,17 @@ void memcpyPrivate(char* src, char* dest, int nBytes)
     }
 }
 
+void _mmove(char* src, char* dest, int nBytes)
+{
+    if (dest < src + nBytes) {
+        int tocpy = src + nBytes - dest;
+        char* tdest = dest + nBytes - tocpy;
+        memcpyPrivate(dest, tdest, tocpy);
+        nBytes -= tocpy;
+    }
+    memcpyPrivate(src, dest, nBytes);
+}
+
 int main(int argc, char** argv)
 {
     char* src = (char*)"01234567890123";
