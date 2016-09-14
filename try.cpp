@@ -8,6 +8,7 @@
 
 #include <vector>
 #include <iostream>
+#include <unordered_set>
 
 using namespace std;
 
@@ -20,4 +21,10 @@ int main(int argc, char** argv)
     for (auto e : v) {
         cout << e << " ";
     }
+    
+    unordered_multiset<string> num = { "cow", "cow" };
+    cout << "count = " << num.count("cow") << endl;
+    num.erase("cow");
+    cout << "count = " << num.count("cow") << endl;
+  
 }
